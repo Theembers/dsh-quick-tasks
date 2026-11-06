@@ -1,0 +1,47 @@
+{
+  "name": "dsh-quick-tasks",
+  "version": "0.1.0",
+  "description": "DSH 左侧栏「后台任务」入口：管理需要后台运行的本地服务，支持一键启动/停止/重启与状态查看，DSH 退出时同步停止",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0",
+    "dsh": ">=0.2.0-rc.1 <0.3.0-0"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "background-tasks"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Theembers/dsh-quick-tasks.git"
+  },
+  "homepage": "https://github.com/Theembers/dsh-quick-tasks#readme",
+  "license": "MIT"
+}

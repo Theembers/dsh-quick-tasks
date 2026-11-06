@@ -1,0 +1,22 @@
+# 插入插件主行
+- insert:
+    - id: dsh-quick-tasks
+      name: dsh-quick-tasks
+
+# 行配置：任务清单（路径均为绝对路径；改完由 dsh-hmr 热重载配置树）
+- id: dsh-quick-tasks
+  config:
+    tasks:
+      - id: ziwei
+        label: 紫微斗数服务
+        description: 本地排盘与 AI 解读服务
+        mode: attached
+        cwd: /Users/theembersguo/.dsh-space/ziwei/ziwei-doushu
+        node: /opt/homebrew/bin/node
+        argv: [node_modules/.bin/next, dev, --port, "3100"]
+        port: 3100
+        url: http://127.0.0.1:3100
+        healthPath: /api/interpret
+        readyTimeoutMs: 120000
+        stopTimeoutMs: 5000
+        logPath: /Users/theembersguo/.dsh/dsh-quick-tasks/logs/ziwei.log
